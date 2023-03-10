@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +10,15 @@
     <title>Igor Doné</title>
 </head>
 <body>
+    <div class="switch-box">
+      <input type="checkbox" class="checkbox" id="chk"/>
+      <label class="label" for="chk">
+        <i class="fas fa-moon"></i>
+        <i class="fas fa-sun"></i>
+        <div class="ball"></div>
+      </label>
+    </div>
+
     <div class="center">
         <div class="card">
           <div class="additional">
@@ -80,6 +89,7 @@
           </div>
         </div>
     </div>
+
     <script>
       $('.skill-per').each(function(){
         var $this = $(this);
@@ -98,4 +108,5 @@
     </script>
 </body>
 <script src="https://kit.fontawesome.com/b91338c26a.js" crossorigin="anonymous"></script>
+<script src="script.js"></script>
 </html>

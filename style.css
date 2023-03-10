@@ -1,9 +1,68 @@
 @import url('https://fonts.googleapis.com/css?family=Abel');
 
 html, body {
-  background: #f1f1f1;
   font-family: Abel, Arial, Verdana, sans-serif;
 }
+
+body{
+  background-color:#f1f1f1;
+  transition: background 0.2s linear;
+}
+body.theme{
+  background-color:#1c1c1c;
+}
+
+.switch-box{
+  position:absolute;
+  margin-left:825px;
+  margin-top:250px;
+  box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
+}
+
+.checkbox{
+  opacity: 0;
+  position:absolute;
+}
+
+.label{
+  display:flex;
+  justify-content: space-between;
+  background-color:#1d1c1c;
+  width:39px;
+  height:18px;
+  padding:2px;
+  padding-left:4px;
+  border-radius:45px;
+  cursor:pointer;
+  position:relative;
+  transform: scale(1);
+}
+
+.label .ball{
+  background-color:#fff;
+  border-radius: 50%;
+  position:absolute;
+  top:1.5px;
+  left:2px;
+  width:18px;
+  height:18px;
+  transform: translateX(0px);
+  transition: transform 0.2s linear;
+}
+
+.checkbox:checked + .label .ball{
+  transform: translateX(21.5px);
+}
+
+.fa-moon{
+  color: #e7cf76;
+  transform: scale(0.8);
+}
+.fa-sun{
+  color: #c5aa47;
+  transform: scale(0.7);
+}
+
 
 .center {
   position: absolute;
