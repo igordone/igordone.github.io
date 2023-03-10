@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css?family=Abel');
 
 html, body {
+  margin:0;
+  padding:0;
+  width:0;
+  height:0;
   font-family: Abel, Arial, Verdana, sans-serif;
 }
 
@@ -13,10 +17,9 @@ body.theme{
 }
 
 .switch-box{
-  position:absolute;
-  margin-left:825px;
-  margin-top:250px;
+  position: absolute;
   box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
+  margin-left:775px;
 }
 
 .checkbox{
@@ -27,7 +30,7 @@ body.theme{
 .label{
   display:flex;
   justify-content: space-between;
-  background-color:#1d1c1c;
+  background-color:#2b5cc7;
   width:39px;
   height:18px;
   padding:2px;
