@@ -1,16 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Abel');
 
-html, body {
+*{
   margin:0;
   padding:0;
-  width:0;
-  height:0;
+  box-sizing: border-box;
   font-family: Abel, Arial, Verdana, sans-serif;
 }
 
 body{
   background-color:#f1f1f1;
-  transition: background 0.2s linear;
+  transition: 0.2s linear;
 }
 body.theme{
   background-color:#1c1c1c;
@@ -19,7 +18,7 @@ body.theme{
 .switch-box{
   position: absolute;
   box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
-  margin-left:775px;
+  margin-left:39vw;
 }
 
 .checkbox{
@@ -32,7 +31,7 @@ body.theme{
   justify-content: space-between;
   background-color:#2b5cc7;
   width:39px;
-  height:18px;
+  height:19px;
   padding:2px;
   padding-left:4px;
   border-radius:45px;
@@ -59,13 +58,12 @@ body.theme{
 
 .fa-moon{
   color: #e7cf76;
-  transform: scale(0.8);
+  transform: scale(0.9);
 }
 .fa-sun{
   color: #c5aa47;
-  transform: scale(0.7);
+  transform: scale(0.8);
 }
-
 
 .center {
   position: absolute;
@@ -75,19 +73,19 @@ body.theme{
 }
 
 .card-photo{
-  width:100px;
-  height:100px;
+  width:clamp(70px, 100px, 100px);
   position:absolute;
-  margin:20px 0px 0px 100px;
+  margin:1vw 0px 0px 100px;
 }
 
 #photo{
   border-radius:50%;
-  width:100px;
+  width:clamp(70px, 90px, 100px);
 }
 
 .card {
-  width: 800px;
+  /*width? 800px; */
+  width: clamp(22rem, 40vw, 40vw);
   height: 350px;
   background-color: #fff;
   background: linear-gradient(#f8f8f8, #fff);
@@ -99,12 +97,13 @@ body.theme{
 }
 
 .card h1 {
+  margin-top:5%;
   text-align: center;
 }
 
 .card .additional {
   position: absolute;
-  width: 315px;
+  width: clamp(10rem, 16vw, 16vw);
   height: 100%;
   background: linear-gradient(#2b5cc7, #4371d3);
   transition: width 0.4s;
@@ -117,8 +116,7 @@ body.theme{
 }
 
 .card .additional .user-card {
-  width: 150px;
-  height: 100%;
+  width: 6vw;
   position: relative;
   float: left;
 }
@@ -130,7 +128,7 @@ body.theme{
   top: 10%;
   right: -2px;
   height: 80%;
-  border-left: 2px solid rgba(0,0,0,0.025);*/
+  border-left: 2px solid rgba(0,0,0,0.025);
 }
 
 .card .additional .more-info {
@@ -195,16 +193,15 @@ a{
 }
 
 .card .general {
-  width: 300px;
-  height: 100%;
+  width: clamp(8rem, 18rem, 18rem);
+  height:100%;
   position: absolute;
-  top: 0;
   right: 0;
   z-index: 1;
   box-sizing: border-box;
   padding: 2.5rem;
   padding-top: 0;
-  margin-right:140px;
+  margin-right:6vw;
   text-align: justify;
 }
 
@@ -216,16 +213,13 @@ a{
 }
 
 .card-skills{
-  margin-top:135px;
-  margin-left:40px;
+  margin-top:7vw;
+  margin-left:3vw;
   position:absolute;
 }
 
 .skills{
-  width:100%;
-  max-width:250px;
-  padding: 0 25px;
-  margin:16px;
+  width:clamp(0vw, 10vw, 12vw);
 }
 
 .skills-name{
@@ -233,7 +227,7 @@ a{
   font-size:13.5px;
   font-weight:550;
   text-transform: uppercase;
-  margin:5px 0;
+  margin:0.5rem 0;
 }
 
 .skill-bar{
@@ -254,12 +248,12 @@ a{
 .skill-per::before{
   content: attr(per);
   position:absolute;
-  padding:4px 6px;
+  padding:3px 6px;
   background-color: #000;
   color:#fff;
   font-size:12px;
   border-radius: 4px;
-  top: -35px;
+  top: -2rem;
   right: 0;
   transform: translateX(50%);
 }
@@ -267,11 +261,11 @@ a{
 .skill-per::after{
   content:'';
   position:absolute;
-  width:10px;
+  width:5px;
   height:10px;
   background-color:#000;
-  top:-16px;
-  right:0;
+  right: 0;
+  top:-1rem;
   transform: translateX(50%) rotate(45deg);
   border-radius: 2px;
 }
