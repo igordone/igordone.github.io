@@ -8,6 +8,9 @@
 }
 
 body{
+  display:flex;
+  justify-content: center;
+  align-items: center;
   background-color:#f1f1f1;
   transition: 0.2s linear;
 }
@@ -18,7 +21,7 @@ body.theme{
 .switch-box{
   position: absolute;
   box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
-  margin-left:39vw;
+  margin-left: 88%;
 }
 
 .checkbox{
@@ -73,20 +76,20 @@ body.theme{
 }
 
 .card-photo{
-  width:clamp(70px, 100px, 100px);
+  width:clamp(50px, 100px, 100px);
   position:absolute;
-  margin:1vw 0px 0px 100px;
+  margin-left:5vw;
+  margin-top:2vh;
 }
 
 #photo{
   border-radius:50%;
-  width:clamp(70px, 90px, 100px);
+  width:clamp(50px, 90px, 100px);
 }
 
 .card {
-  /*width? 800px; */
-  width: clamp(22rem, 40vw, 40vw);
-  height: 350px;
+  width: clamp(35rem, 40vw, 40vw);
+  height: 20rem;
   background-color: #fff;
   background: linear-gradient(#f8f8f8, #fff);
   box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
@@ -132,10 +135,10 @@ body.theme{
 }
 
 .card .additional .more-info {
-  width: 300px;
+  width: 20rem;
   float: left;
   position: absolute;
-  left: 350px;
+  left: 18vw;
   height: 100%;
 }
 
@@ -208,18 +211,17 @@ a{
 .card .general .more {
   position: absolute;
   bottom: 1rem;
-  right: 1rem;
   font-size: 0.9em;
 }
 
 .card-skills{
-  margin-top:7vw;
-  margin-left:3vw;
+  margin-left:3rem;
+  margin-top:6rem;
   position:absolute;
 }
 
 .skills{
-  width:clamp(0vw, 10vw, 12vw);
+  width:clamp(5vw, 10vw, 12vw);
 }
 
 .skills-name{
