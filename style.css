@@ -70,13 +70,13 @@ body.theme{
 
 .center {
   position: absolute;
-  top: 50%;
+  top: 45%;
   left: 50%;
   -webkit-transform: translate(-50%, -50%);
 }
 
 .card-photo{
-  width:clamp(50px, 100px, 100px);
+  width:clamp(50px, 90px, 100px);
   position:absolute;
   margin-left:5vw;
   margin-top:2vh;
@@ -118,25 +118,8 @@ body.theme{
   border-radius: 0 5px 5px 0;
 }
 
-.card .additional .user-card {
-  width: 6vw;
-  position: relative;
-  float: left;
-}
-
-.card .additional .user-card::after {
-  content: "";
-  display: block;
-  position: absolute;
-  top: 10%;
-  right: -2px;
-  height: 80%;
-  border-left: 2px solid rgba(0,0,0,0.025);
-}
-
 .card .additional .more-info {
   width: 20rem;
-  float: left;
   position: absolute;
   left: 18vw;
   height: 100%;
@@ -175,8 +158,8 @@ body.theme{
   text-align: center;
 }
 a{
-    text-decoration:none;
-    color:#fff;
+  text-decoration:none;
+  color:#fff;
 }
 .card .additional .stats div.title {
   font-size: 0.9rem;
@@ -270,4 +253,204 @@ a{
   top:-1rem;
   transform: translateX(50%) rotate(45deg);
   border-radius: 2px;
+}
+
+@media screen and (max-width: 800px){
+  .card {
+    width:30rem;
+    height: 35rem;
+    background-color: #fff;
+    background: linear-gradient(#f8f8f8, #fff);
+    box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    margin: 1.5rem;
+  }
+  .card .additional {
+    position: absolute;
+    width: 100%;
+    height: 16rem;
+    background: linear-gradient(#2b5cc7, #4371d3);
+    transition: height 0.4s;
+    overflow: hidden;
+    z-index: 2;
+  }
+
+  .profile-div{
+    display:flex;
+    width:100%;
+    height:5rem;
+    margin-left:1rem;
+  }
+
+  .skills{
+    width:clamp(5rem, 10rem, 10rem);
+  }
+
+  .card-skills{
+    position:absolute;
+    margin-left:10rem;
+    margin-top:2rem;
+  }
+  
+  .card:hover .additional {
+    height: 100%;
+    border-radius: 0 5px 5px 0;
+  }
+
+  .card-photo{
+    width:clamp(50px, 90px, 100px);
+    margin-top:5rem;
+  }
+
+  .card .additional .more-info {
+    width:20rem;
+    top: 1.5rem;
+    height: 100%;
+    margin-top:14rem;
+    margin-left:-4rem;
+    position:absolute;
+    text-align:center;
+  }
+
+  .card .additional .stats {
+    font-size: 1.6rem;
+    display: flex;
+    position:relative;
+    left: 1rem;
+    right: 1rem;
+    margin-top:5rem;
+    color: #fff;
+  }
+
+  .card .general {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 23rem;
+    height:100%;
+    margin-top:5rem;
+    position: absolute;
+    z-index: 1;
+    box-sizing: border-box;
+    text-align: justify;
+  }
+  
+  .card .general .more {
+    position: absolute;
+    bottom:6rem;
+    font-size: 0.9em;
+  }
+
+}
+
+@media screen and (max-width: 380px){
+  .switch-box{
+    position: absolute;
+    box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
+    margin-left: 82%;
+  }
+
+  .card {
+    width:20rem;
+    height: 28rem;
+    background-color: #fff;
+    background: linear-gradient(#f8f8f8, #fff);
+    box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    margin: 1.5rem;
+  }
+  .card .additional {
+    position: absolute;
+    width: 100%;
+    height: 14rem;
+    background: linear-gradient(#2b5cc7, #4371d3);
+    transition: height 0.4s;
+    overflow: hidden;
+    z-index: 2;
+    font-size:0.8rem;
+  }
+
+  .card .additional .coords {
+    margin: 0 1rem;
+    color: #fff;
+    font-size: 0.8rem;
+    padding:5px;
+  }
+
+  .profile-div{
+    display:flex;
+    height:5rem;
+    margin-left:2rem;
+  }
+
+  .skills{
+    width:6rem;
+  }
+
+  .card-skills{
+    position:absolute;
+    margin-left:8rem;
+    margin-top:1.5rem;
+  }
+  
+  .card:hover .additional {
+    height: 100%;
+    border-radius: 0 5px 5px 0;
+  }
+
+  .card-photo{
+    width: 90px;
+    margin-top:5rem;
+  }
+
+  .card .additional .more-info h1{
+    display:none;
+  }
+
+  .card .additional .more-info {
+    width:20rem;
+    top: 4rem;
+    height: 100%;
+    margin-top:11.2rem;
+    margin-left:-4rem;
+    position:absolute;
+    text-align:center;
+  }
+
+  .card .additional .stats {
+    font-size: 1.6rem;
+    display: flex;
+    position:relative;
+    left: 1rem;
+    right: 1rem;
+    margin-top:5rem;
+    color: #fff;
+  }
+
+  .card .general {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 23rem;
+    height:100%;
+    margin-top:5rem;
+    margin-right:-1rem;
+    position: absolute;
+    z-index: 1;
+    box-sizing: border-box;
+    text-align: center;
+    font-size:0.8rem;
+  }
+  
+  .card .general .more {
+    position: absolute;
+    bottom:6rem;
+    font-size: 0.9em;
+    margin-left:3rem;
+  }
+
 }
