@@ -113,10 +113,10 @@ body.theme{
   overflow: hidden;
   z-index: 2;
 }
-.card:hover .additional {
+/*.card:hover .additional {
   width: 100%;
   border-radius: 0 5px 5px 0;
-}
+}*/
 
 .card .additional .more-info {
   width: 20rem;
@@ -189,6 +189,20 @@ a{
   padding-top: 0;
   margin-right:6vw;
   text-align: justify;
+}
+
+.general-text-div p a{
+  text-decoration: none;
+  color:#3567d3;
+  font-weight:900;
+  
+}
+
+.general-text-div{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .card .general .more {
