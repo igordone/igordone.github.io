@@ -96,7 +96,7 @@
           <p>Tenho vinte e dois anos, moro em Hortolândia desde os meus sete anos de idade. Curso análise e
             desenvolvimento de sistemas na Estácio(modalidade EAD). Gosto de passar meu tempo livre assistindo à <a href="https://letterboxd.com/IgorDone/" target="_blank">filmes</a>,
             <a href="https://myanimelist.net/animelist/TongaMironga?status=7" target="_blank">animes</a>, ouvindo <a href="https://open.spotify.com/user/0vzefy69pfozdc6fee92zf1ut" target="_blank">músicas</a> 
-            e lendo <a href="https://myanimelist.net/mangalist/TongaMironga?status=7" target="_blank">mangás</a>, <a href="https://steamcommunity.com/id/TongaMironga/" target="_blank">jogando</a> ou <a href="#" target="_blank">desenhando</a>.
+            e lendo <a href="https://myanimelist.net/mangalist/TongaMironga?status=7" target="_blank">mangás</a>, <a href="https://steamcommunity.com/id/TongaMironga/" target="_blank">jogando</a> ou <a href="drawing.html" target="_blank">desenhando</a>.
           </p>
           <span class="more">Clique no azul do card para mais informações</span>
         </div>
@@ -118,25 +118,6 @@
           $this.attr('per', Math.floor(this.animatedValue));
         }
       });
-    });
-
-    const additional = document.getElementById("add-card");
-    additional.style.cursor = 'pointer';
-
-    additional.addEventListener('click', () => {
-      cardExtend();
-      additional.style.cursor = 'default';
-    });
-
-    function cardExtend() {
-      if(additional.style.width === ''){
-      additional.style.width = '100%';
-      }
-    }
-
-    additional.addEventListener('mouseleave', () => {
-      additional.style.width = '';
-      additional.style.cursor = 'pointer';
     });
   </script>
 </body>
