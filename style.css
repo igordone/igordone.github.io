@@ -113,10 +113,6 @@ body.theme{
   overflow: hidden;
   z-index: 2;
 }
-/*.card:hover .additional {
-  width: 100%;
-  border-radius: 0 5px 5px 0;
-}*/
 
 .card .additional .more-info {
   width: 20rem;
@@ -242,31 +238,6 @@ a{
   width: 0;
   transition: 1.5s linear;
   position: relative;
-}
-
-.skill-per::before{
-  content: attr(per);
-  position:absolute;
-  padding:3px 6px;
-  background-color: #000;
-  color:#fff;
-  font-size:12px;
-  border-radius: 4px;
-  top: -2rem;
-  right: 0;
-  transform: translateX(50%);
-}
-
-.skill-per::after{
-  content:'';
-  position:absolute;
-  width:5px;
-  height:10px;
-  background-color:#000;
-  right: 0;
-  top:-1rem;
-  transform: translateX(50%) rotate(45deg);
-  border-radius: 2px;
 }
 
 @media screen and (max-width: 800px){
