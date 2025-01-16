@@ -1,352 +1,74 @@
-@import url('https://fonts.googleapis.com/css?family=Abel');
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Manrope:wght@200..800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing: border-box;
-  font-family: Abel, Arial, Verdana, sans-serif;
-}
-
-body{
-  display:flex;
-  justify-content: center;
-  align-items: center;
-  background-color:#f1f1f1;
-  transition: 0.2s linear;
-}
-body.theme{
-  background-color:#1c1c1c;
-}
-
-.switch-box{
-  position: absolute;
-  box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
-  margin-left: 88%;
-}
-
-.checkbox{
-  opacity: 0;
-  position:absolute;
-}
-
-.label{
-  display:flex;
-  justify-content: space-between;
-  background-color:#2b5cc7;
-  width:39px;
-  height:19px;
-  padding:2px;
-  padding-left:4px;
-  border-radius:45px;
-  cursor:pointer;
-  position:relative;
-  transform: scale(1);
-}
-
-.label .ball{
-  background-color:#fff;
-  border-radius: 50%;
-  position:absolute;
-  top:1.5px;
-  left:2px;
-  width:18px;
-  height:18px;
-  transform: translateX(0px);
-  transition: transform 0.2s linear;
-}
-
-.checkbox:checked + .label .ball{
-  transform: translateX(21.5px);
-}
-
-.fa-moon{
-  color: #e7cf76;
-  transform: scale(0.9);
-}
-.fa-sun{
-  color: #c5aa47;
-  transform: scale(0.8);
-}
-
-.center {
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  -webkit-transform: translate(-50%, -50%);
-}
-
-.card-photo{
-  width:clamp(50px, 90px, 100px);
-  position:absolute;
-  margin-left:5vw;
-  margin-top:2vh;
-}
-
-#photo{
-  border-radius:50%;
-  width:clamp(50px, 90px, 100px);
-}
-
-.card {
-  width: clamp(35rem, 40vw, 40vw);
-  height: 20rem;
-  background-color: #fff;
-  background: linear-gradient(#f8f8f8, #fff);
-  box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
-  border-radius: 6px;
-  overflow: hidden;
-  position: relative;
-  margin: 1.5rem;
-}
-
-.card h1 {
-  margin-top:5%;
-  text-align: center;
-}
-
-.card .additional {
-  position: absolute;
-  width: clamp(10rem, 16vw, 16vw);
-  height: 100%;
-  background: linear-gradient(#2b5cc7, #4371d3);
-  transition: width 0.4s;
-  overflow: hidden;
-  z-index: 2;
-}
-
-.card .additional .more-info {
-  width: 20rem;
-  position: absolute;
-  left: 18vw;
-  height: 100%;
-}
-
-.card .additional .more-info h1 {
-  color: #fff;
-  margin-bottom: 0;
-}
-
-
-.card .additional .coords {
-  margin: 0 1rem;
-  color: #fff;
-  font-size: 1rem;
-  padding:10px;
-}
-
-.card .additional .coords span + span {
-  float: right;
-}
-
-.card .additional .stats {
-  font-size: 1.6rem;
-  display: flex;
-  position: absolute;
-  bottom: 1rem;
-  left: 1rem;
-  right: 1rem;
-  top: auto;
-  color: #fff;
-}
-
-.card .additional .stats > div {
-  flex: 1;
-  text-align: center;
-}
-a{
-  text-decoration:none;
-  color:#fff;
-}
-.card .additional .stats div.title {
-  font-size: 0.9rem;
-  font-weight: bold;
-  text-transform: uppercase;
-  padding:12px;
-}
-
-.card .additional .stats div.value {
-  font-size: 1.5rem;
-  font-weight: bold;
-  line-height: 1.5rem;
-}
-
-.card .additional .stats div.value.infinity {
-  font-size: 2.5rem;
-}
-
-.card .general {
-  width: clamp(8rem, 18rem, 18rem);
-  height:100%;
-  position: absolute;
-  right: 0;
-  z-index: 1;
-  box-sizing: border-box;
-  padding: 2.5rem;
-  padding-top: 0;
-  margin-right:6vw;
-  text-align: justify;
-}
-
-.general-text-div p a{
-  text-decoration: none;
-  color:#3567d3;
-  font-weight:900;
-  
-}
-
-.general-text-div{
-  display:flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.card .general .more {
-  position: absolute;
-  bottom: 1rem;
-  font-size: 0.9em;
-}
-
-.card-skills{
-  margin-left:3rem;
-  margin-top:6rem;
-  position:absolute;
-}
-
-.skills{
-  width:clamp(5vw, 10vw, 12vw);
-}
-
-.skills-name{
-  color: #fff;
-  font-size:13.5px;
-  font-weight:550;
-  text-transform: uppercase;
-  margin:0.5rem 0;
-}
-
-.skill-bar{
-  height: 11px;
-  background: #f1f1f1;
-  border-radius:8px;
-}
-
-.skill-per{
-  height:11px;
-  background-color: #0fbcf9;
-  border-radius:8px;
-  width: 0;
-  transition: 1.5s linear;
-  position: relative;
-}
-
-@media screen and (max-width: 800px){
-  .switch-box{
-    position: absolute;
-    box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
-    margin-left: 82%;
-  }
-
-  .card {
-    width:20rem;
-    height: 28rem;
-    background-color: #fff;
-    background: linear-gradient(#f8f8f8, #fff);
-    box-shadow: 0 8px 16px -8px rgba(0,0,0,0.4);
-    border-radius: 6px;
-    overflow: hidden;
-    position: relative;
-    margin: 1.5rem;
-  }
-  .card .additional {
-    position: absolute;
-    width: 100%;
-    height: 14rem;
-    background: linear-gradient(#2b5cc7, #4371d3);
-    transition: height 0.4s;
-    overflow: hidden;
-    z-index: 2;
-    font-size:0.8rem;
-  }
-
-  .card .additional .coords {
-    margin: 0 1rem;
-    color: #fff;
-    font-size: 0.8rem;
-    padding:5px;
-  }
-
-  .profile-div{
-    display:flex;
-    width:100%;
-    height:5rem;
-    margin-left:2rem;
-  }
-
-  .skills{
-    width:6rem;
-  }
-
-  .card-skills{
-    position:absolute;
-    margin-left:9rem;
-    margin-top:1rem;
-  }
-  
-  .card:hover .additional {
+body {
+    background-color: #18181B;
+    color: #ffff;
+    font-family: "Inter", sans-serif;
+    margin: 0;
+    padding: 0.5%;
     height: 100%;
-    border-radius: 0 5px 5px 0;
-  }
+}
 
-  .card-photo{
-    width: 90px;
-    margin-top:5rem;
-    position:relative;
-  }
+.side-menu {
+    background-color: #18181B;
+    height: 100vh;
+    width: 12%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 2%;
+}
 
-  .card .additional .more-info h1{
-    display:none;
-  }
-
-  .card .additional .more-info {
-    width:20rem;
-    top: 4rem;
-    height: 100%;
-    margin-top:11.2rem;
-    margin-left:-19vw;
-    position:absolute;
-    text-align:center;
-  }
-
-  .card .additional .stats {
-    font-size: 1.6rem;
+.contact-icons{
     display: flex;
-    position:relative;
-    left: 1rem;
-    right: 1rem;
-    margin-top:5rem;
-    color: #fff;
-  }
+    gap:15px;
+    margin-top:10%;
+    font-size: 0.6em;
+}
 
-  .card .general {
+.profile-info{
     display:flex;
     flex-direction: column;
-    justify-content: center;
-    width: 23rem;
-    height:100%;
-    margin-top:5rem;
-    margin-right:-1rem;
-    position: absolute;
-    z-index: 1;
-    box-sizing: border-box;
-    text-align: center;
-    font-size:0.8rem;
-  }
-  
-  .card .general .more {
-    position: absolute;
-    bottom:6rem;
-    font-size: 0.9em;
-    margin-left:3rem;
-  }
+}
+.subtitle{
+    margin-top: -10px;
+}
+.loc{
+    margin-top:10%;
+    font-size:;
+}
+
+.content {
+    margin-left: 20%;
+    width: 70%;
+    padding: 5%;
+    border-radius: 16px;
+    background-color: #0A0A0A;
+}
+
+.content h3 {
+    color: #CFCFCF;
+}
+
+
+
+
+
+/*Scroll-bar*/
+::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.8);
 }
