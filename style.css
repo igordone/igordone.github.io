@@ -20,6 +20,9 @@ h3{
 h4{
     font-size: 1.5em;
 }
+.title-experience{
+    font-style: italic;
+}
 
 .side-menu {
     background-color: #18181B;
@@ -65,6 +68,39 @@ h4{
     background-color:#fcfcfc;
     background-image: url(/img/noise-pattern-with-subtle-cross-lines.png);
     color: #4e4e4e;
+}
+
+.experience-list {
+    list-style: none;
+    padding: 0;
+    position: relative;
+}
+
+.experience-list::before {
+    content: "";
+    position: absolute;
+    left: 10px;
+    top: 0;
+    width: 1px;
+    height: 100%;
+    background: #4E4E4E;
+}
+
+.experience-item {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 15px;
+}
+
+.experience-item::before {
+    content: "";
+    position: absolute;
+    left: 7px;
+    top: 5px;
+    width: 7px;
+    height: 7px;
+    background: #4e4e4e;
+    border-radius: 2px;
 }
 
 .Skills-content{
