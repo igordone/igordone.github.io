@@ -290,11 +290,18 @@ img{
 }
 
 .btn-visit-site{
+    font-family: "Montserrat";
+    font-size: 16px;
     padding: 0.5rem;
     border: solid 1px #fafafa;
     border-radius: 6px;
     background-color: transparent;
     color: #fafafa;
+}
+.btn-visit-site:hover{
+    background-color: #222222;
+    transition: 0.3s;
+    cursor: pointer;
 }
 .btn-abrir-pdf{
     border-radius: 6px;
@@ -305,6 +312,11 @@ img{
     font-size: 16px;
     font-weight: bold;
     padding: 1em;
+}
+.btn-abrir-pdf:hover{
+    background-color: #e6e6e6;
+    transition: 0.3s;
+    cursor: pointer;
 }
 .buttons-container{
     display: flex;
