@@ -119,12 +119,16 @@ h4{
 }
 
 .academic-content{
+    width: 100%;
     display:flex;
+    gap: 10%;
 }
 .academic-experience{
-    width:72%;
+    width:100%;
 }
-
+.estacio{
+    width: 100%;
+}
 .Skills-content{
     margin-top: 8%;
 }
