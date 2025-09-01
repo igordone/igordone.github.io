@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
+*{
+    -webkit-font-smoothing: antialiased;
+}
 body {
     display: flex;
     background-color: #18181B;
     color: #ffff;
     font-family: "Montserrat";
     margin: 0;
-    padding:0.5rem;
-    height: 100%;
-    -webkit-font-smoothing: antialiased;
+    height: 100vh;
     overflow: hidden;
 }
 .professional-content{
@@ -85,6 +85,7 @@ h4{
     position: absolute;
     z-index: 10;
     padding: 1%;
+    padding-top: 3%;
 }
 .subtitle-container{
     display: flex;
@@ -120,13 +121,12 @@ h4{
 
 .content {
     width: 100%;
-    padding: 2% 10%;
-    margin-left: 250px;
-    border-radius: 8px;
+    padding: 1% 5% 2% 5%;
+    margin-left: 300px;
     background-color:#fcfcfc;
     background-image: url(/img/noise-pattern-with-subtle-cross-lines.png);
     overflow: scroll;
-    height:52rem;
+    height:55rem;
     color: #4e4e4e;
     position: relative;
     z-index:1;
@@ -168,7 +168,7 @@ h4{
 .academic-content{
     width: 100%;
     display:flex;
-    gap: 10%;
+    gap: 5%;
 }
 .academic-icon{
     display:flex;
@@ -271,16 +271,14 @@ h4{
 .overlay {
     display:flex;
     position: absolute;
-    margin: 0.5rem;
     top: 0;
     left: 0;
+    padding-top: 0.5%;
     transition: width 0.7s ease;
     width: 16rem; 
     height:100vh;
-    border-radius:8px;
     background: #181818;
     justify-content: center;
-    overflow: hidden;
     z-index: 2;
 }
 .portfolio-btn{
@@ -331,10 +329,11 @@ h4{
 .portfolio-content{
     display: flex;
     flex-direction: column;
-    gap: 8rem;
+    gap: 4rem;
     margin-left: 25vw;
     border-radius: 8px;
     width: 100%;
+    height: 55rem;
     overflow-y: scroll;
     scrollbar-width: none;
     -ms-overflow-style: none; 
