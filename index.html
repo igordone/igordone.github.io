@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
     <title>Igor Done</title>
+    <script src="app.js" defer></script>
+    <script src="https://kit.fontawesome.com/b91338c26a.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -39,13 +41,15 @@
     </div>
 
     <div class="content">
+        <h3>Histórico Profissional</h3>
         <div class="professional-content">
-
-            <h3>Histórico Profissional</h3>
-
-            <div class="gjlabs">
-                <h4>Desenvolvedor Frontend, Design e Comunicação visual</h4>
-                <span class="title-experience"><span class="spanspan">GJLabs - </span>2024 ~ Atualmente</span>
+            <!-- GJLabs -->
+            <div class="professional-card">
+                <div class="job-title">
+                    <h4>Desenvolvedor Frontend, Design e Comunicação visual</h4>
+                    <span class="job-time-gj">2024 ~ Atualmente</span>
+                </div>
+                <span class="title-experience">GJLabs</span>
 
                 <ul class="experience-list">
                     <li class="experience-item">
@@ -58,15 +62,21 @@
                         Implementação de componentes reutilizáveis e layouts dinâmicos, alinhados às boas práticas de UI/UX ;
                     </li>
                     <li class="experience-item">
-                        Criação de Landing pages e sites institucionais para projetos utilizando Wordpress + Elementor.
+                        Criação de Landing pages, sites institucionais utilizando Wordpress + Elementor ;
+                    </li>
+                    <li class="experience-item">
+                        Criação de apresentações institucionais e materiais gráficos utilizando Photoshop, Powerpoint e LibreOffice.
                     </li>
                 </ul>
             </div>
 
-            <div class="ibm">
-                <h4>Desenvolvedor de Sistemas</h4>
-                <span class="title-experience"><span class="spanspan">IBM Estagiário - </span>2019 ~ 2020</span>
-
+            <!-- IBM -->
+            <div class="professional-card">
+                <div class="job-title">
+                    <h4>Desenvolvedor de Sistemas</h4>
+                    <span class="job-time-ibm">2019 ~ 2020</span>
+                </div>
+                <span class="title-experience">IBM Estagiário</span>
                 <ul class="experience-list">
                     <li class="experience-item">
                         Desenvolvedor nas linguagens de programação Java e, C# voltada para o framework .NET ;
@@ -80,9 +90,13 @@
                 </ul>
             </div>
 
-            <div class="unicamp">
-                <h4>Suporte técnico</h4>
-                <span class="title-experience"><span class="spanspan">Unicamp -</span> Agosto 2018 ~ 2019</span>
+            <!-- Unicamp -->
+            <div class="professional-card">
+                <div class="job-title">
+                    <h4>Suporte técnico</h4>
+                    <span class="job-time-unicamp">2018 ~ 2019</span>
+                </div>
+                <span class="title-experience">Unicamp</span>
 
                 <ul class="experience-list">
                     <li class="experience-item"> 
@@ -97,10 +111,13 @@
                 </ul>
             </div>
 
-            <div class="tavile">
-                <h4>Técnico de manutenção eletroeletrônica</h4>
-                <span class="title-experience"><span class="spanspan">Tavile -</span> Abril 2020 ~ Janeiro 2022</span>
-
+            <!-- Tavile -->
+            <div class="professional-card">
+                <div class="job-title">
+                    <h4>Técnico de manutenção eletroeletrônica</h4>
+                    <span class="job-time-tavile">2020 ~ 2022</span>
+                </div>
+                <span class="title-experience">Tavile</span>
                 <ul class="experience-list">
                     <li class="experience-item">
                         Reparo e Manutenção de Caixas Eletrônicos (NCR, Itautec e Diebold) ; 
@@ -115,66 +132,82 @@
 
         <div class="academic">
             <h3>Histórico Acadêmico</h3>
-
             <div class="academic-content">
-
-                <div class="estacio">
-                    <h4>Estácio</h4>
-                    <span class="title-experience">2021 - Outubro 2024</span>
-                    <div class="academic-experience"> Análise e desenvolvimento de Sistemas.</div>
-                </div>
-
-                <div class="etec">
-                    <h4>ETEC - Centro Paula Souza</h4>
-                    <span class="title-experience">2018 - 2020</span>
-                    <div class="academic-experience"> 
-                        Técnico em desenvolvimento e design de websites (programação web) com base sólida em lógica de programação, 
-                        HTML, CSS, Javascript, bancos de dados e usabilidade, unindo técnica e design para criar 
-                        aplicações escaláveis e consistentes.
+                <div class="academic-item">
+                    <div class="academic-icon-estacio academic-icon">
+                        <i class="fa-solid fa-graduation-cap" style="color: #fafafa;"></i>
+                    </div>
+                    <h4>Análise e desenvolvimento de sistemas</h4>
+                    <div class="academic-info">
+                        <span class="academic-institution">Estácio</span>
+                        <span class="academic-time">2021 - Outubro 2024</span>
                     </div>
                 </div>
-
+                <div class="academic-item">
+                    <div class="academic-icon-etec academic-icon">
+                        <i class="fa-solid fa-graduation-cap" style="color: #fafafa;"></i>
+                    </div>
+                    <h4>Análise e desenvolvimento de sistemas</h4>
+                    <div class="academic-info">
+                        <span class="academic-institution">ETEC - Centro Paula Souza</span>
+                        <span class="academic-description">
+                            Técnico em desenvolvimento e design de websites (programação web) com base sólida em lógica de programação, 
+                            HTML, CSS, Javascript, bancos de dados e usabilidade, unindo técnica e design para criar 
+                            aplicações escaláveis e consistentes.
+                        </span>
+                        <span class="academic-time">2018 - 2020</span>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="Skills-content">
+        <div class="skills-content">
             <h3>Skills</h3>
-            <div class="skill-items">
-                <div class="skill-list">
-                    <div class="skill-item-container">JavaScript</div>
-                    <div class="skill-item-container">C#</div>
-                    <div class="skill-item-container">API Rest</div>
-                    <div class="skill-item-container">CSS</div>
-                    <div class="skill-item-container">Wordpress</div>
-                    <div class="skill-item-container">Linux</div>
-                    <div class="skill-item-container">AI Prompts</div>
-                    <div class="skill-item-container">Web design</div>
-                    <div class="skill-item-container">UI / UX</div>
-                    <div class="skill-item-container">Ilustrações digitais</div>
-                    <div class="skill-item-container">Figma</div>
-                </div>
-            </div>
-
-            <div class="skills-tools">
-                <div class="skill-icons">
-                    <h4>Softwares</h3>
-                        <div class="skill-list-icons">
-                            <img class="skill-icon" src="/img/icons/photoshop.png" alt="js-icon" />
-                            <img class="skill-icon" src="/img/icons/adobe-after-effects.png" alt="css-icon" />
-                            <img class="skill-icon" src="/img/icons/figma.png" alt="figma-icon" />
-                            <img class="skill-icon" src="/img/icons/adobe-illustrator.png" alt="illustrator-icon" />
-                        </div>
-                </div>
-
-                <div class="languages-content">
-                    <h4>Idiomas</h4>
-
-                    <div class="languages-list">
-                        <div>Inglês - Intermediário</div>
-                        <div>Espanhol - Básico</div>
+            <div class="skills">
+                <div class="skill-items">
+                    <div class="skill-list">
+                        <div class="skill-item-container">JavaScript</div>
+                        <div class="skill-item-container">C#</div>
+                        <div class="skill-item-container">API Rest</div>
+                        <div class="skill-item-container">CSS</div>
+                        <div class="skill-item-container">Wordpress</div>
+                        <div class="skill-item-container">Linux</div>
+                        <div class="skill-item-container">AI Prompts</div>
+                        <div class="skill-item-container">Web design</div>
+                        <div class="skill-item-container">UI / UX</div>
+                        <div class="skill-item-container">Ilustrações digitais</div>
+                        <div class="skill-item-container">Figma</div>
                     </div>
                 </div>
 
+                <div class="skills-tools">
+                    <div class="skill-icons">
+                        <h4>Softwares</h3>
+                            <div class="skill-list-icons">
+                                <div class="skill-icon-container">
+                                    <img class="skill-icon" src="/img/icons/photoshop.png" alt="js-icon" />
+                                </div>
+                                <div class="skill-icon-container">
+                                    <img class="skill-icon" src="/img/icons/adobe-after-effects.png" alt="css-icon" />
+                                </div>
+                                <div class="skill-icon-container">
+                                    <img class="skill-icon" src="/img/icons/figma.png" alt="figma-icon" />
+                                </div>
+                                <div class="skill-icon-container">
+                                    <img class="skill-icon" src="/img/icons/adobe-illustrator.png" alt="illustrator-icon" />
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="languages-content">
+                        <h4>Idiomas</h4>
+
+                        <div class="languages-list">
+                            <div>Inglês - Intermediário</div>
+                            <div>Espanhol - Básico</div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -329,8 +362,4 @@
     </div>
 
 </body>
-
-<script src="app.js"></script>
-<script src="https://kit.fontawesome.com/b91338c26a.js" crossorigin="anonymous"></script>
-
 </html>

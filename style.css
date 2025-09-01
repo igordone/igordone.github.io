@@ -11,6 +11,52 @@ body {
     -webkit-font-smoothing: antialiased;
     overflow: hidden;
 }
+.professional-content{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2%;
+}
+.professional-card{
+    background-color: #fafafa;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #181818;
+    padding: 2rem;
+}
+.job-title{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.job-time-gj{
+    font-weight: medium;
+    background-color: #dcfce7;
+    color: #166534;
+    border-radius: 50px;
+    padding: 0.5rem;
+}
+.job-time-ibm{
+    font-weight: medium;
+    background-color: #e0e7ff;
+    color: #3730a3;
+    border-radius: 50px;
+    padding: 0.5rem;
+}
+.job-time-unicamp{
+    font-weight: medium;
+    background-color: #f3e8ff;
+    color: #7827a8;
+    border-radius: 50px;
+    padding: 0.5rem;
+}
+.job-time-tavile{
+    font-weight: medium;
+    background-color: #fee2e2;
+    color: #991b1b;
+    border-radius: 50px;
+    padding: 0.5rem;
+}
 .span{
     font-style:italic;
     font-weight:bold;
@@ -27,7 +73,8 @@ h4{
     font-size: 1.5em;
 }
 .title-experience{
-    font-style: italic;
+    color: #181818;
+    font-size: 1.1em;
 }
 
 .side-menu {
@@ -123,14 +170,46 @@ h4{
     display:flex;
     gap: 10%;
 }
-.academic-experience{
-    width:100%;
+.academic-icon{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    padding: 0.5rem;
+    border-radius: 8px;
+    width: 2rem;
+    height: 2rem;
 }
-.estacio{
+.academic-icon-estacio{
+    background-color: #3B82F6;
+}
+.academic-icon-etec{
+    background-color: #6366f1;
+}
+.academic-institution{
+    width:100%;
+    font-weight: bold;
+    font-size: 1em;
+}
+.academic-info{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1%;
+}
+.academic-item{
+    background-color: #fafafa;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    color: #181818;
+    padding: 1.5rem;
     width: 100%;
 }
-.Skills-content{
-    margin-top: 8%;
+.skills{
+    background-color: #fafafa;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
 }
 .skill-list{
     display:flex;
@@ -152,14 +231,21 @@ h4{
     margin-top:1%;
 }
 .skill-list-icons{
-    display:flex;;
+    display:flex;
     flex-wrap:wrap;
     width:60%;
     gap: 2%;
 }
 .skill-icon{
-    width:3em;
+    width: 3rem;
     border-radius:8px;
+}
+.skill-icon-container{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.7em;
+    padding:0.2rem;
 }
 
 /*Scroll-bar*/
@@ -182,6 +268,21 @@ h4{
 }
 
 /*Overlay Portfolio*/
+.overlay {
+    display:flex;
+    position: absolute;
+    margin: 0.5rem;
+    top: 0;
+    left: 0;
+    transition: width 0.7s ease;
+    width: 16rem; 
+    height:100vh;
+    border-radius:8px;
+    background: #181818;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 2;
+}
 .portfolio-btn{
     display:flex;
     position: absolute;
@@ -200,7 +301,7 @@ h4{
     border: none;
     border-radius: 8px;
     color:#fafafa;
-    transition: left ease 0.4s;
+    transition: left ease 0.65s;
     z-index: 50;
 }
 .portfolio-btn:hover{
@@ -216,22 +317,6 @@ h4{
 .portfolio-text-btn:hover{
     color: #a1a1a1;
     transition: 0.3s;
-}
-
-.overlay {
-    display:flex;
-    position: absolute;
-    margin: 0.5rem;
-    top: 0;
-    left: 0;
-    transition: width 0.3s ease;
-    width: 16rem; 
-    height:100vh;
-    border-radius:8px;
-    background: #181818;
-    justify-content: center;
-    overflow: hidden;
-    z-index: 2;
 }
 
 .portfolio-container{ 
