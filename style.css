@@ -522,7 +522,7 @@ h1{
         padding-bottom: 2rem;
     }
     .skills{
-        padding-bottom: 8rem;
+        padding-bottom: 10rem;
     }
     .skills-tools{
         flex-direction: column;
@@ -571,6 +571,7 @@ h1{
         height: 100%;
     }
     .portfolio-content{
+        padding-top: 2rem;
         flex-direction: column;
         margin-left:0.5rem !important;
         gap: 1rem !important;
