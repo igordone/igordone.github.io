@@ -6,15 +6,31 @@ const pdfCloseBtn = document.querySelector(".pdf-close-btn");
 const pdfOverlay = document.querySelector(".pdf-overlay");
 const iframe = document.querySelector(".pdf-iframe");
 
-function openPortfolio() {
-    if(overlay.style.width === "100%"){
-        overlay.style.width = "16rem";
-        arrow_btn.style.transform = "rotate(90deg)";
-        portfolio_btn.style.left = "17rem";
+const openPortfolio = () => {
+
+    const isMobile = window.innerWidth <= 768;
+
+    if (isMobile) {
+        overlay.classList.toggle("open");
+
+        if (overlay.classList.contains("open")) {
+            overlay.style.height = "100%";
+            overlay.style.width = "100%";
+            arrow_btn.style.transform = "rotate(180deg)";
+        } else {
+            overlay.style.height = "0";
+            arrow_btn.style.transform = "rotate(0deg)";       
+        }
     } else {
-        overlay.style.width = "100%";
-        arrow_btn.style.transform = "rotate(270deg)";
-        portfolio_btn.style.left = "96%";
+        if (overlay.style.width === "100%") {
+            overlay.style.width = "16rem";
+            arrow_btn.style.transform = "rotate(90deg)";
+            portfolio_btn.style.left = "17rem";
+        } else {
+            overlay.style.width = "100%";
+            arrow_btn.style.transform = "rotate(270deg)";
+            portfolio_btn.style.left = "96%";
+        }
     }
 }
 
