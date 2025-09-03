@@ -571,7 +571,7 @@ h1{
         height: 100%;
     }
     .portfolio-content{
-        padding-top: 2rem;
+        padding-top: 4rem;
         flex-direction: column;
         margin-left:0.5rem !important;
         gap: 1rem !important;
