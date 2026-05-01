@@ -1,38 +1,6 @@
-const overlay = document.querySelector(".overlay");
-const arrow_btn = document.querySelector(".arrow-btn");
-const portfolio_btn = document.querySelector(".portfolio-btn");
 const pdfCloseBtn = document.querySelector(".pdf-close-btn");
-
 const pdfOverlay = document.querySelector(".pdf-overlay");
 const iframe = document.querySelector(".pdf-iframe");
-
-const openPortfolio = () => {
-
-    const isMobile = window.innerWidth <= 768;
-
-    if (isMobile) {
-        overlay.classList.toggle("open");
-
-        if (overlay.classList.contains("open")) {
-            overlay.style.height = "100%";
-            overlay.style.width = "100%";
-            arrow_btn.style.transform = "rotate(180deg)";
-        } else {
-            overlay.style.height = "0";
-            arrow_btn.style.transform = "rotate(0deg)";       
-        }
-    } else {
-        if (overlay.style.width === "100%") {
-            overlay.style.width = "16rem";
-            arrow_btn.style.transform = "rotate(90deg)";
-            portfolio_btn.style.left = "17rem";
-        } else {
-            overlay.style.width = "100%";
-            arrow_btn.style.transform = "rotate(270deg)";
-            portfolio_btn.style.left = "96%";
-        }
-    }
-}
 
 const drivePdfLinks = {
     "radtonics.pdf": "https://drive.google.com/file/d/1R8eiBd_iuxAfbEUyzeShgc4J-u_AxbNq/preview",
@@ -67,5 +35,140 @@ pdfOverlay.addEventListener("click", (event) => {
 
 pdfCloseBtn.addEventListener("click", () => {
     pdfOverlay.style.display = "none";
-    pdfIframe.src = "";
+    iframe.src = "";
 });
+
+// Carousel
+const carousel = document.getElementById('portfolioCarousel');
+const nextBtn = document.getElementById('carouselNext');
+const indicators = document.getElementById('carouselIndicators');
+const cards = document.querySelectorAll('.portfolio-card');
+
+if (carousel && indicators && cards.length > 0) {
+
+    cards.forEach((card, index) => {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        if (index === 0) dot.classList.add('active');
+
+        dot.addEventListener('click', () => {
+            carousel.scrollTo({
+                left: card.offsetLeft - carousel.offsetLeft,
+                behavior: 'smooth'
+            });
+        });
+
+        indicators.appendChild(dot);
+    });
+
+    const dots = document.querySelectorAll('.carousel-indicators .dot');
+
+    if (nextBtn) {
+        nextBtn.addEventListener('click', () => {
+            const currentScroll = carousel.scrollLeft;
+            const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+
+            let nextIndex = 0;
+            for (let i = 0; i < cards.length; i++) {
+                if (cards[i].offsetLeft - carousel.offsetLeft > currentScroll + 10) {
+                    nextIndex = i;
+                    break;
+                }
+            }
+
+            if (currentScroll >= maxScroll - 10) {
+                carousel.scrollTo({ left: 0, behavior: 'smooth' });
+            } else {
+                carousel.scrollTo({
+                    left: cards[nextIndex].offsetLeft - carousel.offsetLeft,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    }
+
+    carousel.addEventListener('scroll', () => {
+        let activeIndex = 0;
+        let minDiff = Infinity;
+
+        cards.forEach((card, index) => {
+            const diff = Math.abs((card.offsetLeft - carousel.offsetLeft) - carousel.scrollLeft);
+            if (diff < minDiff) {
+                minDiff = diff;
+                activeIndex = index;
+            }
+        });
+
+        dots.forEach(dot => dot.classList.remove('active'));
+        if (dots[activeIndex]) {
+            dots[activeIndex].classList.add('active');
+        }
+    });
+}
+
+const themeToggleBtn = document.getElementById('theme-toggle');
+const themeIcon = themeToggleBtn ? themeToggleBtn.querySelector('i') : null;
+
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'dark') {
+    document.body.classList.add('dark-theme');
+    if (themeIcon) {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+    }
+}
+
+if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+        document.body.classList.toggle('dark-theme');
+
+        if (document.body.classList.contains('dark-theme')) {
+            localStorage.setItem('theme', 'dark');
+            themeIcon.classList.remove('fa-moon');
+            themeIcon.classList.add('fa-sun');
+        } else {
+            localStorage.setItem('theme', 'light');
+            themeIcon.classList.remove('fa-sun');
+            themeIcon.classList.add('fa-moon');
+        }
+    });
+}
+
+const typingElements = document.querySelectorAll('.eyebrow, .role');
+
+const typingObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting && !entry.target.classList.contains('typed')) {
+            const el = entry.target;
+            el.classList.add('typed');
+
+            const text = el.textContent.trim();
+            el.textContent = '';
+            el.classList.add('typing-cursor');
+
+            el.style.minHeight = '1.2em';
+            el.style.display = 'inline-block';
+
+            let i = 0;
+            function typeWriter() {
+                if (i < text.length) {
+                    el.textContent += text.charAt(i);
+                    i++;
+
+                    const speed = Math.random() * (120 - 50) + 50;
+                    setTimeout(typeWriter, speed);
+                } else {
+
+                    setTimeout(() => {
+                        el.classList.remove('typing-cursor');
+                        el.style.borderRight = 'none';
+                    }, 2500);
+                }
+            }
+
+            setTimeout(typeWriter, 300);
+        }
+    });
+}, { threshold: 0.5 });
+
+typingElements.forEach(el => typingObserver.observe(el));
