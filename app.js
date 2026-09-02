@@ -172,3 +172,142 @@ const typingObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5 });
 
 typingElements.forEach(el => typingObserver.observe(el));
+
+// ── Tech Sphere ──────────────────────────────────────────────
+(function () {
+    const container = document.getElementById('esferaTecnologias');
+    if (!container) return;
+
+    const tecnologias = [
+        { name: 'React',           icon: 'code' },
+        { name: 'JavaScript',      icon: 'javascript' },
+        { name: 'TypeScript',      icon: 'code' },
+        { name: 'HTML5',           icon: 'html' },
+        { name: 'CSS3',            icon: 'css' },
+        { name: 'UI / UX',         icon: 'palette' },
+        { name: 'Node.js',         faIcon: 'fa-brands fa-node-js' },
+        { name: 'REST APIs',       icon: 'cloud' },
+        { name: 'C# .NET',         icon: 'code' },
+        { name: 'SQL',             icon: 'database' },
+        { name: 'Git',             icon: 'account_tree' },
+        { name: 'GitHub',          icon: 'terminal' },
+        { name: 'Figma',           icon: 'draw' },
+        { name: 'Illustrator',     icon: 'brush' },
+        { name: 'Photoshop',       icon: 'photo_camera' },
+        { name: 'CI / CD',         icon: 'sync' },
+    ];
+
+    const RAIO = 260;
+    const total = tecnologias.length;
+
+    function gerarPontosEsfera(n, raio) {
+        const pontos = [];
+        const offset = 2 / n;
+        const incremento = Math.PI * (3 - Math.sqrt(5));
+        for (let i = 0; i < n; i++) {
+            const y = i * offset - 1 + offset / 2;
+            const r = Math.sqrt(1 - y * y);
+            const phi = i * incremento;
+            pontos.push({
+                x: Math.cos(phi) * r * raio,
+                y: y * raio,
+                z: Math.sin(phi) * r * raio,
+            });
+        }
+        return pontos;
+    }
+
+    const pontos = gerarPontosEsfera(total, RAIO);
+
+    const elementos = tecnologias.map((tech, i) => {
+        const el = document.createElement('div');
+        el.className = 'sphere-tecnologia';
+
+        if (tech.faIcon) {
+            const icon = document.createElement('i');
+            icon.className = tech.faIcon;
+            icon.style.fontSize = '24px';
+            el.appendChild(icon);
+        } else {
+            const icon = document.createElement('span');
+            icon.className = 'material-symbols-outlined';
+            icon.textContent = tech.icon;
+            el.appendChild(icon);
+        }
+
+        const label = document.createElement('span');
+        label.textContent = tech.name;
+
+        el.appendChild(label);
+        container.appendChild(el);
+        return { el, base: pontos[i] };
+    });
+
+    let rotX = 0.3;
+    let rotY = 0;
+    let autoRotate = true;
+    const velY = 0.0025;
+
+    let dragging = false;
+    let lastX = 0, lastY = 0;
+
+    function onPointerDown(e) {
+        dragging = true;
+        autoRotate = false;
+        lastX = e.touches ? e.touches[0].clientX : e.clientX;
+        lastY = e.touches ? e.touches[0].clientY : e.clientY;
+    }
+
+    function onPointerMove(e) {
+        if (!dragging) return;
+        const cx = e.touches ? e.touches[0].clientX : e.clientX;
+        const cy = e.touches ? e.touches[0].clientY : e.clientY;
+        rotY += (cx - lastX) * 0.005;
+        rotX += (cy - lastY) * 0.005;
+        rotX = Math.max(-1.2, Math.min(1.2, rotX));
+        lastX = cx;
+        lastY = cy;
+    }
+
+    function onPointerUp() {
+        dragging = false;
+        setTimeout(() => { if (!dragging) autoRotate = true; }, 1500);
+    }
+
+    container.addEventListener('mousedown', onPointerDown);
+    container.addEventListener('touchstart', onPointerDown, { passive: true });
+    window.addEventListener('mousemove', onPointerMove);
+    window.addEventListener('touchmove', onPointerMove, { passive: true });
+    window.addEventListener('mouseup', onPointerUp);
+    window.addEventListener('touchend', onPointerUp);
+
+    function render() {
+        if (autoRotate) rotY += velY;
+
+        const cosX = Math.cos(rotX), sinX = Math.sin(rotX);
+        const cosY = Math.cos(rotY), sinY = Math.sin(rotY);
+
+        elementos.forEach(({ el, base }) => {
+            let x = base.x * cosY - base.z * sinY;
+            let z = base.x * sinY + base.z * cosY;
+            let y = base.y;
+
+            let y2 = y * cosX - z * sinX;
+            let z2 = y * sinX + z * cosX;
+
+            const escala = (z2 + RAIO * 1.6) / (RAIO * 2.6);
+            const opacidade = Math.max(0.15, Math.min(1, (z2 + RAIO) / (RAIO * 2)));
+            const blur = Math.max(0, (1 - escala) * 3);
+            const zIndex = Math.round((z2 + RAIO) * 10);
+
+            el.style.transform = `translate3d(${x}px, ${y2}px, 0) scale(${escala.toFixed(3)})`;
+            el.style.opacity = opacidade.toFixed(2);
+            el.style.filter = `blur(${blur.toFixed(2)}px)`;
+            el.style.zIndex = zIndex;
+        });
+
+        requestAnimationFrame(render);
+    }
+
+    render();
+})();
