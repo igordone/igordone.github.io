@@ -178,6 +178,8 @@ typingElements.forEach(el => typingObserver.observe(el));
     const container = document.getElementById('esferaTecnologias');
     if (!container) return;
 
+    const wrapper = container.parentElement;
+
     const tecnologias = [
         { name: 'React',           icon: 'code' },
         { name: 'JavaScript',      icon: 'javascript' },
@@ -197,7 +199,9 @@ typingElements.forEach(el => typingObserver.observe(el));
         { name: 'CI / CD',         icon: 'sync' },
     ];
 
-    const RAIO = 260;
+    function getRaio() {
+        return Math.min(wrapper.offsetWidth, wrapper.offsetHeight) * 0.37;
+    }
     const total = tecnologias.length;
 
     function gerarPontosEsfera(n, raio) {
@@ -217,7 +221,7 @@ typingElements.forEach(el => typingObserver.observe(el));
         return pontos;
     }
 
-    const pontos = gerarPontosEsfera(total, RAIO);
+    const pontosBase = gerarPontosEsfera(total, 1);
 
     const elementos = tecnologias.map((tech, i) => {
         const el = document.createElement('div');
@@ -226,7 +230,7 @@ typingElements.forEach(el => typingObserver.observe(el));
         if (tech.faIcon) {
             const icon = document.createElement('i');
             icon.className = tech.faIcon;
-            icon.style.fontSize = '24px';
+            icon.style.fontSize = 'clamp(16px, 12px + 2vw, 24px)';
             el.appendChild(icon);
         } else {
             const icon = document.createElement('span');
@@ -240,7 +244,7 @@ typingElements.forEach(el => typingObserver.observe(el));
 
         el.appendChild(label);
         container.appendChild(el);
-        return { el, base: pontos[i] };
+        return { el, baseNorm: pontosBase[i] };
     });
 
     let rotX = 0.3;
@@ -284,21 +288,26 @@ typingElements.forEach(el => typingObserver.observe(el));
     function render() {
         if (autoRotate) rotY += velY;
 
+        const raio = getRaio();
         const cosX = Math.cos(rotX), sinX = Math.sin(rotX);
         const cosY = Math.cos(rotY), sinY = Math.sin(rotY);
 
-        elementos.forEach(({ el, base }) => {
-            let x = base.x * cosY - base.z * sinY;
-            let z = base.x * sinY + base.z * cosY;
-            let y = base.y;
+        elementos.forEach(({ el, baseNorm }) => {
+            const bx = baseNorm.x * raio;
+            const by = baseNorm.y * raio;
+            const bz = baseNorm.z * raio;
+
+            let x = bx * cosY - bz * sinY;
+            let z = bx * sinY + bz * cosY;
+            let y = by;
 
             let y2 = y * cosX - z * sinX;
             let z2 = y * sinX + z * cosX;
 
-            const escala = (z2 + RAIO * 1.6) / (RAIO * 2.6);
-            const opacidade = Math.max(0.15, Math.min(1, (z2 + RAIO) / (RAIO * 2)));
+            const escala = (z2 + raio * 1.6) / (raio * 2.6);
+            const opacidade = Math.max(0.15, Math.min(1, (z2 + raio) / (raio * 2)));
             const blur = Math.max(0, (1 - escala) * 3);
-            const zIndex = Math.round((z2 + RAIO) * 10);
+            const zIndex = Math.round((z2 + raio) * 10);
 
             el.style.transform = `translate3d(${x}px, ${y2}px, 0) scale(${escala.toFixed(3)})`;
             el.style.opacity = opacidade.toFixed(2);
